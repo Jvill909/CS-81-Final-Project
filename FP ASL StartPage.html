@@ -1,0 +1,62 @@
+<html>
+	<head>
+	<title>CS81 - Assignment 6</title>
+        <meta charset="utf-8">
+	</head>
+	<body>
+		<h2>ASL Fingerspelling Quiz</h2>
+		<ul>
+			<li>Enter words into the box below.</li>
+			<li>Your added words will be shown below the "Start" and "Reset" buttons.</li>
+			<li>When ready, click the "Start" button to randomly generate a word that will
+				be handspelled back to you.</li>
+			<li>After the word has been handspelled, type your answer in the second box
+				labeled "Submit answer".</li>
+			<li>If you are unsure of the answer click the "Replay button to have the
+				word handspelled back to you again.</li>
+			<li>When you have correctly guessed the handspelled word, press the "Continue"
+				button to move onto the next word.
+			<li>You may click on the "Continue" when you are ready to move onto the next
+				word, wether you correctly guessed the word or not.</li>
+		</ul>
+		
+		<p>Enter Word: <input id="word" type="text"> <button id="btnAdd">Add</button></p>
+
+		<p><button id="start">Start</button>
+		<button id="reset">Reset</button></p>
+		<ol id="output"></ol>
+		
+		
+		<p>Submit answer: <input id="userAnswer" type="text"> <button id="submit">Submit</button>
+
+		<p><button id="replay">Replay</button> <button id="continue">Continue</button></p>
+		
+		<script type="text/javascript">
+			function clearInput() {
+				document.getElementById("word").value = "";
+			}
+            function clearOutput() {
+                let output = document.getElementById("output");
+                output.innerHTML = "";
+            }
+            let readyCheck = setInterval(() => {
+                if (document.readyState !== 'complete') {
+                    return;
+                }
+                clearInterval(readyCheck);
+                onDocumentLoaded();
+            }, 200);
+            function onDocumentLoaded() {
+                registerStartButton();
+				registerAddButton();
+				registerResetButton();
+				registerSubmitButton();
+				registerReplayWordButton();
+				registerContinueButton();
+			}
+        </script>
+	
+	<script src="FP ASL Code.js"></script>
+	</body>
+
+</html>
